@@ -1,0 +1,512 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+     <link rel="shortcut icon" href="{Favicon}" />
+     <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+        <title>{Title}</title>
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        {NewPostStyles}
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+      {block:Options}
+        <meta name="color:a" content="#222" />
+        <meta name="image:background" content="" />
+        <meta name="color:background" content="#E9967a" />
+        <meta name="color:posts" content="8FBC8F" />
+        <meta name="color:text" content="#222" />
+        <meta name="color:border" content="#FF1493" />
+        <meta name="if:full background" content="" />
+      {/block:Options}
+      
+<style>
+    :root {
+            --background-color: #F0FFF0;
+            --spacing: 20px;
+            --posts: #FFFFF0;
+            --text: #222;
+            --borders:#008000;
+            --a: #808080;
+            --title-font: Times;
+        }
+ * {
+     box-sizing:300px;
+}
+
+    body {
+        background:#FFF0F5;
+        font-family: Georgia;
+        font-size: 12px;
+        color: #808080;
+        overflow: auto;
+        {block:iffullbackground:cover;}
+        background-size: cover;
+        {/block:iffullbackground}
+    }
+    
+    .flex {
+        display:flex;
+    }
+    
+    
+    .align{ 
+        align-items: right;
+    }
+    
+    .center{
+        justify-content: right;
+    }
+    
+    .text{
+       border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	width: 6px;
+	word-wrap: normal
+	overflow: hidden;
+	position: absolute;
+    }
+    
+    main {
+	width: 100%;
+	justify-content: space-around;
+	align-items: center;
+	margin: auto;
+	max-width: 1230px;
+}
+
+section {
+	width: 40px;
+}
+
+article .info,
+.lblock,
+.hashtag,
+.header,
+article .quote,
+article .source,
+.pagination,
+article h1,
+article h2 {
+	padding: 10px;
+}
+
+article .question,
+article .answer {
+	margin: 10px;
+	border-radius: 2px;
+	border: 1px solid;
+}
+
+.hashtag {
+	padding-top: .5px;
+}
+
+
+.lblock {
+	margin: 10px;
+}
+
+article .caption p {
+	padding: 10px;
+	margin: -5px;
+}
+
+.reblog {
+    white-space: 10px;
+}
+
+.caption:last-child p,
+.reblog p:last-of-type {
+	padding-bottom: 1px;
+}
+
+.header img {
+	max-width: 30px;
+	margin-right: .4rem;
+	border-radius: .2rem;
+}
+
+.header:is(:not(.original)) {
+	border-top: 1px solid;
+}
+
+.header,
+.reblog {
+	padding-bottom: 0;
+}
+
+article .info,
+.like-and-reblog {
+	justify-content: center;
+}
+
+.pagination {
+	justify-content:center;
+}
+
+.like-and-reblog {
+	width: 100px;
+	align-items: center;
+}
+
+article h1 {
+	margin: 1;
+	font-size: 12px;
+}
+
+article,
+.pagination {
+	max-width: 500px;
+	background: #FFFFF0;
+	width: 75%;
+	border: 2px solid;
+	border-radius: 1px;
+	margin: 20px;
+}
+
+ol.postings li {
+	padding: 1px;
+}
+
+ol.postings img {
+	display: right;
+}
+
+article img {
+	display: block;
+}
+
+article iframe,
+article img {
+	max-width: 100%;
+}
+
+a {
+	color: #a9a9a9;
+}
+
+quotations {
+    padding:10px;
+	border-left: 2px solid;
+}
+
+quotations p {
+    padding:1px;
+}
+	section {
+		width: 150%;
+	}
+
+	article {
+		margin: 100px;
+	}
+}
+    
+    #side {
+        float: right;
+        width: 700px;
+        height: 1000px;
+        background: #FFF0F5;
+        position:right;
+        right: 300px;
+        left: 200px;
+        border-left: .5px solid #010407;
+    }
+    .tite {
+        display:inline-block;
+        max-width:25px;
+        min-width:17px;
+        height: 10px;
+        border-bottom: 1px solid #82593f;
+        border-left: 1px solid #8c6640;
+    }
+    .imge {
+        width:10 px;
+        height: 100px;
+        border-top-left-radius: 2%;
+        border-right: 10%;
+        border: 4px solid rgb(2, 2, 2);
+        background: rgb(205, 181, 157);
+    
+    }
+    .link{
+        width: 100px;
+        height: 15px;
+        background:rgb(129, 90, 61);
+        margin-top: 10px;
+        float: center;
+        margin-left: 15px;
+        font-family: Times; 
+    
+    }
+    .link:nth-child(even) {float:center;}
+    .a:hover{
+        background: #FFF0F5;
+    }
+    
+    .desk {
+        width: 500px;
+        height: 100vh;
+        background:#FFF0F5;
+        margin-top: 60px;
+        float: justify;
+        font-family: Times;
+        border-bottom:solid;
+        text-align: justify;
+        overflow: auto;
+    
+    }
+    .navbar{
+        padding:20px;
+    
+    
+    }
+    .nabar-left svg{
+        width:100px;
+    
+    
+    }
+    
+    .navbar-left div {
+        height: 30px;
+        float: right;
+        background: #E6E6FA;
+    
+    
+    }
+    
+    .desk::-webkit-scrollbar {
+        width: 7px;
+    }
+    .desk::-webkit-scrollbar-track{
+        background: #2378;
+        box-shadow: 5px;
+        border-radius: 10px;
+    
+    }
+    .desk::-webkit-scrollbar-thumb{
+        background:#010407;
+        border-radius: 10px;
+    }
+    
+    .desk::-webkit-scrollbar-thumb:hover{
+        background: #555;
+    }
+    .box{
+        width: 330px;
+        position: center;
+        text-align: justify;
+        margin-left: 690px;
+        border-radius: 5px;
+        border: 1px solid;
+        padding: 20px;
+        background-color: #FFF0F5;
+        box-shadow: 1px 5px};
+
+    }
+    .boxdown:after{
+        content:"";
+        display: table;
+        clear: both;
+    
+    }
+    .box :boxfirst-child{
+        align-self:center;
+    
+    }
+    
+    
+    .a:nth-child(even) {float: right;}
+
+
+
+</style>    
+    </head>
+    <body class="{block:homepage}home{/block:homepage}{block:tagpage}tag{/block:tagpage}{block:searchpage}search{/block:searchpage}{block:submitpage}submit-{/block:submitpage}{block:askPage}ask{/block:askPage}-page">
+
+   
+    <main class="flex">
+        <section>
+        {block:Posts}
+        <article id="postings{PostID}" class="{posttype}-post posts">
+        {block:Photo}
+            <div class="photoset"><img src="{PhotoURL-HighRes}" alt="{photoalt}" class="photos"></div>
+        {/block:Photo}
+
+        {block:Photoset}
+           <div class="photosetset">{Photoset}</div> 
+        {/block:Photoset}
+            
+        {block:Panorama}
+            <div class="photoset"><img src="{photourl-panorama}" alt="{photoalt}"></div>
+        {/block:Panorama}
+        
+<!-- quote posts -->            
+        {block:Quote}
+            <div class="quote">
+                "{Quote}"
+            </div>
+            <div class="source">
+                -{Source}
+            </div>
+        {/block:Quote}
+        
+<!-- chat posts -->            
+        {block:Chat}
+            <ul class="chat">
+                {block:Lines}
+                    <li>
+                        {block:Label}{Label}{/block:Label} 
+                        {Line}
+                    </li>
+                {/block:Lines}
+            </ul>
+        {/block:Chat}
+        {block:link}
+            <div class="lblock">
+                <a href="{URL}">
+                    {Name}
+                </a>
+            </div>
+        {/block:link}
+           {/block:NotReblog}
+        <div class="caption {block:notreblog} original-post {/block:notreblog}">
+            {block:Text}
+                {block:Title}<h2>{Title}</h2>{/block:Title}
+            {/block:Text}
+            {block:notreblog}
+            {block:caption}{Caption}{/block:caption}
+            {block:Text}{body}{/block:Text}
+            {/block:notreblog}
+            {block:Rebloggedfrom}
+                {block:Reblogs}
+                <div class="reblogs">
+                    <div class="header {block:IsOriginalEntry}original{/block:IsOriginalEntry} flex align-center">
+                        <a href="{permalink}" target="_blank"><img src="{PortraitURL-64}" alt="{username}'s avatar"></a>
+                        <a href="{permalink}" target="_blank" {block:isdeactivated}class="inactive"{/block:isdeactivated}>
+                            {username}
+                        </a>
+                    </div>
+                    <div class="reblog">
+                        {Body}
+                    </div>
+                </div>
+                {/block:Reblogs}
+            {/block:RebloggedFrom}
+        </div>
+        {block:Date}
+            <div class="info flex align-center">
+                <div class="perma-info">
+                    <a href="/day/{Year}/{MonthNumberWithZero}/{dayofmonthwithzero}">Posted on {ShortMonth} {DayofMonth}, {Year} </a>
+                  with
+	                <a href="{permalink}">{NoteCountWithLabel}</a>
+	            {block:permalinkpage}
+                <br>
+                {block:RebloggedFrom}
+                    <a href="{reblogparenturl}">
+                        from {reblogparentname}
+                    </a> 
+                    <a href="{reblogrooturl}">
+                        posted by {reblogrootname} 
+                    </a>
+                {/block:RebloggedFrom}
+                {/block:permalinkpage}
+            </div>
+            <div class="like-and-reblog flex align-center">    
+                {ReblogButton} {LikeButton}
+            </div>
+            </div>
+        {/block:Date}
+        {block:Hashashtag}
+            <div class="hashtag">
+                {block:hashtag}
+                <a href="{TagURL}">#{Tag}</a>
+                {/block:hashtag}
+            </div>
+        {/block:Hashashtag}
+        {Postpostings}
+        </article>
+      {/block:Posts}
+      {block:Pagination}
+            <div class="pagination flex right">
+                {block:previouspage}
+                <a href="{previouspage}">Prev</a>
+                {/block:previouspage}
+                {block:nextpage}
+                <a href="{nextpage}">Next</a>
+                {/block:nextpage}
+            </div>
+            {/block:pagination}
+        </section> 
+    </main>
+</body>
+<script>
+
+let posts = []
+{block:Posts} 
+    posts.push({ npf: JSON.parse({JSNPF}), id: {JSPostId}}) 
+{/block:Posts}
+
+function updateTypes(type, article) {
+    article.classList.remove('text-post')
+    article.classList.add(`${ type }-post`, 'npf-post')
+}
+
+for (const post of posts) {
+   let npf = post.npf
+   let article = document.getElementById(`postings${post.id}`)
+
+   let caption = article.querySelector('.caption:is(:not(:empty))')
+   if (caption != null && article.classList.contains('text-post')) {
+
+      if (npf.trail.length || npf.content.length) {
+            switch (npf.trail[0]?.content[0]?.type ?? npf.content[0].type) {
+            case 'image':
+               updateTypes('photos', article)
+               if (article.querySelector('.npf_row') == null) {
+                  caption.prepend(article.querySelector('figure'))
+               }
+               break
+            case 'link':
+            case 'quote':
+                updateTypes('quote', article)
+            }
+         if (article.classList.contains('photos-post')) {
+            let photoset = document.createElement('div')
+            photoset.classList.add('npf-photos')
+            caption.prepend(photoset)
+            let photoBreak = article.querySelector('.reblog p, .reblog h1, .reblog h2')
+            let elements = []
+            if (photoBreak) {
+               let prevElement = photoBreak.parentNode.firstElementChild
+               while (prevElement !== photoBreak) {
+                  elements.push(prevElement)
+                  prevElement = prevElement.nextpagepagepagepagepagepageElementSibling
+               }
+            }
+            else {
+               elements = article.querySelectorall('.npf_row')
+            }
+            for (const el of elements) {
+               photoset.append(el)
+            }
+            if (article.querySelectorall('.npf_row').length > 1) {
+                updateTypes('photoset', article)
+            }
+            else {
+                updateTypes('photo', article)
+            }
+         }
+         
+         let reblogContent = article.querySelector('.reblog')
+         if (reblogHeader?.nextpagepagepagepagepagepageElementSibling === reblogContent && reblogContent?.childElementCount === 0) {
+            reblogHeader.remove()
+            reblogContent.remove()
+         }
+      }
+   }
+}
+</script>
+</html>
