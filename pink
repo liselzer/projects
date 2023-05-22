@@ -342,8 +342,7 @@ quotations p {
         {block:Panorama}
             <div class="photoset"><img src="{photourl-panorama}" alt="{photoalt}"></div>
         {/block:Panorama}
-        
-<!-- quote posts -->            
+                  
         {block:Quote}
             <div class="quote">
                 "{Quote}"
@@ -352,8 +351,7 @@ quotations p {
                 -{Source}
             </div>
         {/block:Quote}
-        
-<!-- chat posts -->            
+           
         {block:Chat}
             <ul class="chat">
                 {block:Lines}
@@ -501,7 +499,7 @@ for (const post of posts) {
          }
          
          let reblogContent = article.querySelector('.reblog')
-         if (reblogHeader?.nextpagepagepagepagepagepageElementSibling === reblogContent && reblogContent?.childElementCount === 0) {
+         if (reblogHeader?.nextpageElementSibling === reblogContent && reblogContent?.childElementCount === 0) {
             reblogHeader.remove()
             reblogContent.remove()
          }
